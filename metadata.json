@@ -1,0 +1,6 @@
+{
+  "name": "Vidriería Central Santiago",
+  "description": "Vidriería en Santiago Centro con más de 60 años de servicio. Vidrio templado, ventanas termopanel y de aluminio, espejos y reparaciones con garantía.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

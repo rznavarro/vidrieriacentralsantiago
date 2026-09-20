@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --azul-marino: #06192f;
+  --azul-noche: #001f3b;
+  --hielo: #d6e6f5;
+  --hielo-claro: #e8f3fb;
+  --blanco: #ffffff;
+  --gris-texto: #5e7082;
+  --acento: #0E8C80;
+  --acento-osc: #0A6F66;
+}
+
+html {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--azul-marino);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 44% 28%, #e8f3fb 0 6%, #d9e9f6 30%, #d6e6f5 68%, #d4e5f4 100%);
+  background-attachment: fixed;
+  color: var(--azul-marino);
+  font-size: 17.5px;
+  line-height: 1.55;
+  font-weight: 400;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Grano muy sutil (SVG inline texture) */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.10;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism Vidrio Esmerilado */
+.vidrio-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(239, 247, 253, 0.42));
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 24px;
+  box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.32), 0 7px 26px rgba(65, 94, 123, 0.045);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.vidrio-panel:hover {
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.vidrio-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.45), 0 14px 34px rgba(6, 25, 47, 0.08);
+}
+
+/* Botones */
+.btn-acento {
+  background-color: var(--acento);
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-acento:hover {
+  background-color: var(--acento-osc);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(14, 140, 128, 0.25);
+}
+
+.btn-vidrio {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(239, 247, 253, 0.45));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: var(--azul-marino);
+  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+}
+.btn-vidrio:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(6, 25, 47, 0.06);
+}
+
+/* Tipografía especializada según especificación */
+.font-display-hero {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.title-light {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* Soporte prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
